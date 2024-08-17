@@ -143,7 +143,11 @@ for epoch in range(0, epochs):
 
         d0, d1, d2, d3, d4, d5, d6 = net(inputs_v)
         
-        loss2, loss = muti_bce_loss_fusion(d0, d1, d2, d3, d4, d5, d6, labels_v)
+        with torch.autocast(device_type="hpu", dtype=torch.bfloat16):
+            loss2, loss = muti_bce_loss_fusion(d0, d1, d2, d3, d4, d5, d6, labels_v)
+        
+        # loss2, loss = muti_bce_loss_fusion(d0, d1, d2, d3, d4, d5, d6, labels_v)
+
 
         loss.backward()
         htcore.mark_step()

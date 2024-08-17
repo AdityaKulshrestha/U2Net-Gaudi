@@ -60,7 +60,7 @@ def save_output(image_name, pred, d_dir):
 def main(): 
 
     model_name = "u2net"
-    model_chkpt = "bce_itr_34000_train_0.1629488290399313_tar0.014324243980459868.pth"
+    model_chkpt = "bce_itr_14000_train_0.3078603515625_tar0.0366202392578125.pth"
     image_dir = os.path.join(os.getcwd(), 'data','test_data', 'DUTS-TE-Image')
     prediction_dir = os.path.join(os.getcwd(), 'output_results', model_name + '_results' + os.sep)
     model_dir = os.path.join(os.getcwd(), 'saved_models', model_name ,model_chkpt)
